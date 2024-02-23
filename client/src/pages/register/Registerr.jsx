@@ -1,6 +1,6 @@
+import React from "react";
 import "./register.css";
-
-export default function Register() {
+function Registerr() {
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -24,3 +24,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default Registerr;
