@@ -2,7 +2,7 @@ import React from "react";
 import "./register.css";
 import axios from "axios";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 function Registerr() {
   const username = useRef();
   const email = useRef();
@@ -21,7 +21,7 @@ function Registerr() {
       };
       try {
         await axios.post("/auth/register", user);
-        navigate("/login"); 
+        navigate("/login");
       } catch (err) {
         console.log(err);
       }
@@ -31,9 +31,10 @@ function Registerr() {
     <div className="login">
       <div className="loginWrapper">
         <div className="loginLeft">
-          <h3 className="loginLogo">Lamasocial</h3>
+          <h3 className="loginLogo">BV SYNERGY</h3>
           <span className="loginDesc">
-            Connect with friends and the world around you on Lamasocial.
+            Connect with friends, mentors , teachers and the world around you on
+            BV SYNERGY.
           </span>
         </div>
         <div className="loginRight">

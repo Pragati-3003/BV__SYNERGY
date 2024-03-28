@@ -1,4 +1,5 @@
 import "./sidebar.css";
+import { Link } from 'react-router-dom';
 import {
   RssFeed,
   Chat,
@@ -28,19 +29,19 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
-            <span className="sidebarListItemText">Videos</span>
+            <span className="sidebarListItemText">Meetings</span>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
-            <span className="sidebarListItemText">Groups</span>
+            <span className="sidebarListItemText"><Link to="/clubs" style={{textDecoration:'none' , color:'black'}}>Clubs</Link> </span>
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Bookmarks</span>
+            <span className="sidebarListItemText">Mentors</span>
           </li>
           <li className="sidebarListItem">
-            <HelpOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Questions</span>
+            <Group className="sidebarIcon" />
+            <span className="sidebarListItemText">Alumni</span>
           </li>
           <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
@@ -48,14 +49,14 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Event className="sidebarIcon" />
-            <span className="sidebarListItemText">Events</span>
+            <span className="sidebarListItemText"><Link to="/events" style={{textDecoration:'none' , color:'black'}}>Events</Link> </span>
           </li>
           <li className="sidebarListItem">
             <School className="sidebarIcon" />
-            <span className="sidebarListItemText">Courses</span>
+            <span className="sidebarListItemText"><Link to="/departments" style={{textDecoration:'none' , color:'black'}}>Departments</Link> </span>
           </li>
         </ul>
-        <button className="sidebarButton">Show More</button>
+        {/* <button className="sidebarButton">Show More</button> */}
         <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
           {Users.map((u) => (
