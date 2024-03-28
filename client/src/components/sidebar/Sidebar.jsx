@@ -25,7 +25,7 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
-            <span className="sidebarListItemText">Chats</span>
+            <span className="sidebarListItemText"><Link to="/messenger" style={{textDecoration:'none' , color:'black'}}>Messaging</Link></span>
           </li>
           <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />

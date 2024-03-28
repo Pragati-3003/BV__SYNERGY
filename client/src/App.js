@@ -6,6 +6,7 @@ import Profile from "./pages/profile/Profile";
 import Registerr from "./pages/register/Registerr";
 import Events from "./components/events/Events";
 import Clubs from "./components/clubs/Clubs";
+import Messenger from "./pages/messenger/Messenger";
 import Departments from "./components/departments/Departments";
 import {
   BrowserRouter as Router,
@@ -26,7 +27,7 @@ function App() {
         <Route path="/events" element={!user ? <Navigate to="/" /> : <Events />} />
         <Route path="/clubs" element={!user ? <Navigate to="/" /> : <Clubs />} />
         <Route path="/departments" element={!user ? <Navigate to="/" /> : <Departments />} />
-
+        <Route path="/messenger" element={!user ? <Navigate to="/" /> : <Messenger />} />
      </Routes>
     </Router>
   );
