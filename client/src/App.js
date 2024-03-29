@@ -9,6 +9,9 @@ import Clubs from "./components/clubs/Clubs";
 import Messenger from "./pages/messenger/Messenger";
 import Departments from "./components/departments/Departments";
 import Mentor  from './components/mentor/Mentor'
+import LobbyScreen from "./components/screens/Lobby";
+import RoomPage from "./components/screens/Room";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -29,7 +32,12 @@ function App() {
         <Route path="/clubs" element={!user ? <Navigate to="/" /> : <Clubs />} />
         <Route path="/departments" element={!user ? <Navigate to="/" /> : <Departments />} />
         <Route path="/messenger" element={!user ? <Navigate to="/" /> : <Messenger />} />
+
         <Route path="/mentor" element={!user ? <Navigate to="/" /> : <Mentor />} />
+
+        <Route path="/room" element={!user ? <Navigate to="/" /> : <LobbyScreen />}  />
+        <Route path="/room/:roomId" element={<RoomPage />} />
+
      </Routes>
     </Router>
   );
