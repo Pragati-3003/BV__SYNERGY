@@ -3,8 +3,8 @@ import './departments.css'
 import Topbar from "../../components/topbar/Topbar";
 const Departments = () => {
   return (
-    <> <Topbar />
-
+    <> 
+    <Topbar />
 <section className="main-section">
        <div className="main-container">
       <div className="heading">
