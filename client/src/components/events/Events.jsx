@@ -7,7 +7,7 @@ import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import Topbar from "../../components/topbar/Topbar";
 import "./events.css";
 const locales = {
   "en-US": require("date-fns/locale/en-US"),
@@ -66,6 +66,7 @@ const Events = () => {
 
   return (
     <div className="events">
+      <Topbar/>
       <h1>Calendar</h1>
       <h2>Add New Event</h2>
       <div>

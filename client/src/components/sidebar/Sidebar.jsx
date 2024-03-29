@@ -37,7 +37,7 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <Bookmark className="sidebarIcon" />
-            <span className="sidebarListItemText">Mentors</span>
+            <span className="sidebarListItemText"><Link to="/mentor" style={{textDecoration:'none' , color:'black'}}>Mentors</Link></span>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
