@@ -18,9 +18,13 @@ const Clubs = () => {
   return (
     <>
     <Topbar></Topbar>
+    <div className="club-heading">
     <h1 className="club-head">    
                 Our Clubs                    </h1>
       <div className="clubs-container">
+    </div>
+    
+    
       {clubs.map((club, index) => (
         <div key={index} className="club-card">
           <img className="club-image" src={club.image} alt={club.name} />
