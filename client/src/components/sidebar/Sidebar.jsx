@@ -29,7 +29,7 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
-            <span className="sidebarListItemText">Meetings</span>
+            <span className="sidebarListItemText"><Link to="/room" style={{textDecoration:'none' , color:'black'}}>Meetings</Link> </span>
           </li>
           <li className="sidebarListItem">
             <Group className="sidebarIcon" />
