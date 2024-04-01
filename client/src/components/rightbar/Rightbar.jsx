@@ -18,8 +18,11 @@ export default function Rightbar({ user }) {
   useEffect(() => {
     const getFriends = async () => {
       try {
-        const friendList = await axios.get("/users/friends/" + user._id);
-        setFriends(friendList.data);
+        if (user && user._id) {
+          const friendList = await axios.get("/users/friends/" + user._id);
+          setFriends(friendList.data);
+          console.log(friendList.data);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -46,19 +49,35 @@ export default function Rightbar({ user }) {
   };
 
   const HomeRightbar = () => {
+    const { user: currentUser } = useContext(AuthContext);
+    const [friends, setFriends] = useState([]);
+    useEffect(() => {
+      const fetchFriends = async () => {
+        try {
+          const response = await axios.get(`/users/friends/${currentUser._id}`);
+          setFriends(response.data);
+        } catch (error) {
+          console.error("Error fetching friends:", error);
+        }
+      };
+  
+      if (currentUser) {
+        fetchFriends();
+      }
+    }, [currentUser]);
     return (
       <>
         <div className="birthdayContainer">
           <img className="birthdayImg" src="assets/gift.png" alt="" />
           <span className="birthdayText">
-            <b>Pola Foster</b> and <b>3 other friends</b> have a birhday today.
+            <b>Pola Foster</b> and <b>3 other friends</b> have a birthday today.
           </span>
         </div>
         <img className="rightbarAd" src="assets/ad.png" alt="" />
-        <h4 className="rightbarTitle">Online Friends</h4>
+        <h4 className="rightbarTitle"> Friends</h4>
         <ul className="rightbarFriendList">
-          {Users.map((u) => (
-            <Online key={u.id} user={u} />
+          {friends.map((friend) => (
+            <Online key={friend.id} user={friend} />
           ))}
         </ul>
       </>
