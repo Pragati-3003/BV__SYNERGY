@@ -19,8 +19,17 @@ export default function Post({ post }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?userId=${post.userId}`);
-      setUser(res.data);
+      try {
+        const res = await axios.get(`/users?userId=${post.userId}`);
+        // Check if response contains data
+        if (res.data) {
+          setUser(res.data);
+        } else {
+          console.error("Error: No user data found in response");
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error.message);
+      }
     };
     fetchUser();
   }, [post.userId]);
