@@ -8,6 +8,8 @@
     "mongoose": "^8.2.3",
     "nodemon": "^3.1.0",
     "react-big-calendar": "^1.11.2",
-    "react-datepicker": "^6.6.0"
+    "react-datepicker": "^6.6.0",
+    "react-simple-chatbot": "^0.6.1",
+    "styled-component": "^2.8.0"
   }
 }
