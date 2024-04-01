@@ -13,20 +13,28 @@ export default function Feed({ username }) {
     const fetchPosts = async () => {
       const res = username
         ? await axios.get("/posts/profile/" + username)
-        : await axios.get("posts/timeline/" + user._id);
-      setPosts(
-        res.data.sort((p1, p2) => {
-          return new Date(p2.createdAt) - new Date(p1.createdAt);
-        })
-      );
+        : await axios.get("posts/getallpost/");
+      // const res = await axios.get("/posts/getallpost");
+      // console.log(res.data);
+
+
+      if (res.status === 200) {
+        setPosts(
+          res.data.sort((p1, p2) => {
+            return new Date(p2.createdAt) - new Date(p1.createdAt);
+          })
+        );
+      } else {
+        console.error("Error fetching posts:", res.statusText);
+      }
     };
     fetchPosts();
-  }, [username, user._id]);
+  }, [username]);
 
   return (
     <div className="feed">
       <div className="feedWrapper">
-        {(user.isAdmin  && (!username || username === user.username ) )  && <Share />}
+        {(user.isAdmin && (!username || username === user.username)) && <Share />}
         {posts.map((p) => (
           <Post key={p._id} post={p} />
         ))}

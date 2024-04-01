@@ -13,6 +13,23 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get("/getallpost", async (req, res) => {
+  try {
+    const allPosts = await Post.find({}).populate('userId');
+
+    if (!allPosts || allPosts.length === 0) {
+      return res.status(404).json({ message: 'No posts found' });
+    }
+
+    console.log(allPosts);
+    res.status(200).json(allPosts);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+
 //update a post
 
 router.put("/:id", async (req, res) => {
@@ -98,5 +115,19 @@ router.get("/profile/:username", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+router.get("/admin-posts", async (req, res) => {
+  try {
+    const adminUsers = await User.find({ isAdmin: true });
+    const adminUserIds = adminUsers.map(user => user._id);
+    const adminPosts = await Post.find({ author: { $in: adminUserIds } });
+    res.status(200).json(adminPosts);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 module.exports = router;
