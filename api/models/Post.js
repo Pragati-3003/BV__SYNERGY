@@ -2,9 +2,12 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
+    
     userId: {
+      
       type: String,
       required: true,
+    
     },
     desc: {
       type: String,
@@ -17,6 +20,7 @@ const PostSchema = new mongoose.Schema(
       type: Array,
       default: [],
     },
+   
   },
   { timestamps: true }
 );
