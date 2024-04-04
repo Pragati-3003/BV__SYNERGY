@@ -13,6 +13,8 @@ export default function Conversation({ conversation, currentUser }) {
       try {
         const res = await axios("/users?userId=" + friendId);
         setUser(res.data);
+
+        // console.log(res.data);
       } catch (err) {
         console.log(err);
       }

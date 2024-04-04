@@ -45,7 +45,7 @@ export default function Sidebar() {
           </li>
           <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
-            <span className="sidebarListItemText">Jobs</span>
+            <span className="sidebarListItemText"><Link to="/jobs" style={{textDecoration:'none' , color:'black'}}>Jobs</Link></span>
           </li>
           <li className="sidebarListItem">
             <Event className="sidebarIcon" />

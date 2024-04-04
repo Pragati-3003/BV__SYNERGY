@@ -1,5 +1,7 @@
 import "./rightbar.css";
-import { Users } from "../../dummyData";
+// import { Users } from "../../dummyData";
+import { useNavigate } from "react-router";
+
 import Online from "../online/Online";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
@@ -21,7 +23,7 @@ export default function Rightbar({ user }) {
         if (user && user._id) {
           const friendList = await axios.get("/users/friends/" + user._id);
           setFriends(friendList.data);
-          console.log(friendList.data);
+         
         }
       } catch (err) {
         console.log(err);
@@ -49,6 +51,7 @@ export default function Rightbar({ user }) {
   };
 
   const HomeRightbar = () => {
+    
     const { user: currentUser } = useContext(AuthContext);
     const [friends, setFriends] = useState([]);
     useEffect(() => {
@@ -85,6 +88,32 @@ export default function Rightbar({ user }) {
   };
 
   const ProfileRightbar = () => {
+    const navigate = useNavigate();
+    const isCurrentUserViewingOwnProfile = user.username === currentUser.username;
+    const handleMessageClick = async () => {
+      // Ensure you have access to the navigate function
+      
+      try {
+        // Check if a conversation exists between currentUser and user
+        const conversationResponse = await axios.get(`/conversations/find/${currentUser._id}/${user._id}`);
+        
+        if (conversationResponse.data) {
+          // Conversation already exists, navigate to the messaging page
+          navigate(`/messenger/`);
+        } else {
+          // Conversation doesn't exist, create a new conversation
+          const newConversationResponse = await axios.post('/conversations/', {
+            senderId: currentUser._id,
+            receiverId: user._id
+          });
+          
+          console.log('Conversation created:', newConversationResponse.data);
+          navigate(`/messenger/`);
+        }
+      } catch (error) {
+        console.error('Error handling message click:', error);
+      }
+    };
     return (
       <>
         {user.username !== currentUser.username && (
@@ -112,6 +141,8 @@ export default function Rightbar({ user }) {
                 ? "Married"
                 : "-"}
             </span>
+            <br></br>
+           { !isCurrentUserViewingOwnProfile && <button onClick={handleMessageClick}>Message</button>}
           </div>
         </div>
         <h4 className="rightbarTitle">User friends</h4>

@@ -11,7 +11,7 @@ import Departments from "./components/departments/Departments";
 import Mentor  from './components/mentor/Mentor'
 import LobbyScreen from "./components/screens/Lobby";
 import RoomPage from "./components/screens/Room";
-
+import Jobs from "./components/jobs/Jobs";
 import {
   BrowserRouter as Router,
   Routes,
@@ -34,7 +34,7 @@ function App() {
         <Route path="/messenger" element={!user ? <Navigate to="/" /> : <Messenger />} />
 
         <Route path="/mentor" element={!user ? <Navigate to="/" /> : <Mentor />} />
-
+        <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Jobs />} />
         <Route path="/room" element={!user ? <Navigate to="/" /> : <LobbyScreen />}  />
         <Route path="/room/:roomId" element={<RoomPage />} />
 
