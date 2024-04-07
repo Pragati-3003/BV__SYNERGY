@@ -4,26 +4,27 @@ const bcrypt = require("bcrypt");
 
 //update user
 router.put("/:id", async (req, res) => {
-  if (req.body.userId === req.params.id || req.body.isAdmin) {
-    if (req.body.password) {
-      try {
-        const salt = await bcrypt.genSalt(10);
-        req.body.password = await bcrypt.hash(req.body.password, salt);
-      } catch (err) {
-        return res.status(500).json(err);
-      }
-    }
+  const { id } = req.params;
+  const { userId, isAdmin, password, ...rest } = req.body; 
+  
+  // Check if the user has permission to update the profile
+  // if (userId === id || isAdmin) {
     try {
-      const user = await User.findByIdAndUpdate(req.params.id, {
-        $set: req.body,
-      });
-      res.status(200).json("Account has been updated");
+      if (password) {
+        const salt = await bcrypt.genSalt(10);
+        let hashedPassword = await bcrypt.hash(password, salt);
+        rest.password = hashedPassword; // Update the password in the rest object
+      }
+      const updatedUser = await User.findByIdAndUpdate(id, req.body);
+      
+      res.status(200).json(updatedUser);
+      console.log(updatedUser);
     } catch (err) {
-      return res.status(500).json(err);
+      res.status(500).json(err);
     }
-  } else {
-    return res.status(403).json("You can update only your account!");
-  }
+  // } else {
+  //   res.status(403).json("You can update only your account!");
+  // }
 });
 
 //delete user

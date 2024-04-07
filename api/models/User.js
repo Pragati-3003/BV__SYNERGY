@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      require: true,
+      required: true,
       min: 3,
       max: 20,
       unique: true,
@@ -29,11 +29,11 @@ const UserSchema = new mongoose.Schema(
       default: "",
     },
     followers: {
-      type: Array,
+      type: [String], // Assuming follower IDs
       default: [],
     },
     followings: {
-      type: Array,
+      type: [String], // Assuming following IDs
       default: [],
     },
     isAdmin: {
@@ -58,9 +58,46 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['student', 'admin'],
-      default: 'student'
-  }
+      enum: ["student", "admin"],
+      default: "student",
+    },
+    department: {
+      type: String,
+    },
+    course: {
+      type: String,
+    },
+    job: {
+      type: String,
+    },
+    skills: {
+      type: [String],
+      default: [],
+    },
+    interests: {
+      type: [String],
+      default: [],
+    },
+    linkedin: {
+      type: String,
+      default: "",
+    },
+    twitter: {
+      type: String,
+      default: "",
+    },
+    github: {
+      type: String,
+      default: "",
+    },
+    degree: {
+      type: String,
+      default: "",
+    },
+    graduationYear: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
