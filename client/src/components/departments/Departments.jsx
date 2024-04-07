@@ -2,7 +2,7 @@ import React from 'react'
 import './departments.css'
 import { Link } from 'react-router-dom';
 import Topbar from "../../components/topbar/Topbar";
-
+import Dept_link from './Deptlink';
 const Departments = () => {
 
    const departs = [
@@ -51,7 +51,7 @@ const Departments = () => {
     <div className="heading-in">Departments</div>
     <div className="dept-container">
       {departs.map((departs,index)=>(
-        <div className="main-card">
+        <div  key={index} className="main-card">
              <div className="card-outer-title">
             <h1 className="outer-title">{departs.dept_name}</h1>
               </div> 
@@ -65,12 +65,8 @@ const Departments = () => {
                <div className="card-information">
              <p className="card-info">{departs.subjects}</p>
                </div>               
-              <button className="card-btn"><Link to ="/link_Dept"></Link>More Info</button>        
+              <button className="card-btn"><Link to ="/link_Depts">More Info</Link> </button>        
             </div> 
-
-              
-
-     
           </div>
 
         </div>

@@ -12,12 +12,14 @@ import Mentor  from './components/mentor/Mentor'
 import LobbyScreen from "./components/screens/Lobby";
 import RoomPage from "./components/screens/Room";
 import Jobs from "./components/jobs/Jobs";
+import Deptlink from "./components/departments/Deptlink";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate
 } from "react-router-dom";
+// import Link_dept from "./components";
 
 function App() {
   const { user } = useContext(AuthContext);
@@ -37,7 +39,7 @@ function App() {
         <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Jobs />} />
         <Route path="/room" element={!user ? <Navigate to="/" /> : <LobbyScreen />}  />
         <Route path="/room/:roomId" element={<RoomPage />} />
-
+        <Route path="/link_Depts" element={!user ? <Navigate to="/" /> : <Deptlink/>}/>
      </Routes>
     </Router>
   );
