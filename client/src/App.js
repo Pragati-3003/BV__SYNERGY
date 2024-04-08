@@ -8,16 +8,16 @@ import Events from "./components/events/Events";
 import Clubs from "./components/clubs/Clubs";
 import Messenger from "./pages/messenger/Messenger";
 import Departments from "./components/departments/Departments";
-import Mentor  from './components/mentor/Mentor'
+import Mentor from "./components/mentor/Mentor";
 import LobbyScreen from "./components/screens/Lobby";
 import RoomPage from "./components/screens/Room";
-import Jobs from "./components/jobs/Jobs";
+import Jobs from "./components/jobs/Job";
 import Deptlink from "./components/departments/Deptlink";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate
+  Navigate,
 } from "react-router-dom";
 // import Link_dept from "./components";
 
@@ -26,21 +26,45 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={user ? <Home /> : <Registerr />} />
+        <Route path="/" element={user ? <Home /> : <Registerr />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-        <Route path="/register" element={user ? <Navigate to="/" /> : <Registerr />} />
+        <Route
+          path="/register"
+          element={user ? <Navigate to="/" /> : <Registerr />}
+        />
         <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/events" element={!user ? <Navigate to="/" /> : <Events />} />
-        <Route path="/clubs" element={!user ? <Navigate to="/" /> : <Clubs />} />
-        <Route path="/departments" element={!user ? <Navigate to="/" /> : <Departments />} />
-        <Route path="/messenger" element={!user ? <Navigate to="/" /> : <Messenger />} />
+        <Route
+          path="/events"
+          element={!user ? <Navigate to="/" /> : <Events />}
+        />
+        <Route
+          path="/clubs"
+          element={!user ? <Navigate to="/" /> : <Clubs />}
+        />
+        <Route
+          path="/departments"
+          element={!user ? <Navigate to="/" /> : <Departments />}
+        />
+        <Route
+          path="/messenger"
+          element={!user ? <Navigate to="/" /> : <Messenger />}
+        />
 
-        <Route path="/mentor" element={!user ? <Navigate to="/" /> : <Mentor />} />
-        <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Jobs />} />
-        <Route path="/room" element={!user ? <Navigate to="/" /> : <LobbyScreen />}  />
+        <Route
+          path="/mentor"
+          element={!user ? <Navigate to="/" /> : <Mentor />}
+        />
+        <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Job />} />
+        <Route
+          path="/room"
+          element={!user ? <Navigate to="/" /> : <LobbyScreen />}
+        />
         <Route path="/room/:roomId" element={<RoomPage />} />
-        <Route path="/link_Depts" element={!user ? <Navigate to="/" /> : <Deptlink/>}/>
-     </Routes>
+        <Route
+          path="/link_Depts"
+          element={!user ? <Navigate to="/" /> : <Deptlink />}
+        />
+      </Routes>
     </Router>
   );
 }
