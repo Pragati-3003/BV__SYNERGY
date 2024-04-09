@@ -54,7 +54,7 @@ function App() {
           path="/mentor"
           element={!user ? <Navigate to="/" /> : <Mentor />}
         />
-        <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Job />} />
+        <Route path="/jobs" element={!user ? <Navigate to="/" /> : <Jobs />} />
         <Route
           path="/room"
           element={!user ? <Navigate to="/" /> : <LobbyScreen />}
