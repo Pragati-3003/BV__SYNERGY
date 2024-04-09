@@ -1,21 +1,23 @@
 .clubs-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
-    padding: 1rem;
-    overflow-x: scroll;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5rem;
+  padding: 5rem;
+  overflow-x: scroll;
   }
   
   .club-card {
-    background-color: #f8f9fa;
-    border-radius: 0.5rem;
-    padding: 1rem;
+    background-color: #0c2d4e;
+    border-radius: 0.8rem;
+    padding: 3rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items:center;
+    justify-content:top;
     transition: transform 0.3s;
+    height: 50vh;
+    width: 40vh;
   }
   
   .club-card:hover {
@@ -23,15 +25,43 @@
   }
   
   .club-name {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 2rem;
+    font-weight:bolder;
     margin-bottom: 0.5rem;
+    color: white;
+    
+    
   }
   
   .club-image {
-    width: 100px;
-    height: 100px;
+   
+    height: 100%;
     border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
+    object-fit:fill;
+    margin-bottom: 5rem;
+    
+    
+  }
+  .club-img{
+    width: 180px;
+    border-radius: 50%;
+    height: 120%;
+    margin-top: -100px;
+    border-color: white;
+    border: 5px solid #0c2d4e;
+  
+  }
+  .club-btn{
+    text-align: center;
+    width: 150px;
+    height: 80px;
+    border-radius: 8px;
+    padding: 1px;
+    background-color: rgb(144, 144, 133);
+    
+  }
+  .club-btn:hover {
+    transform: translateY(-3px);
+    background-color: white;
+    color:#0c2d4e
   }
