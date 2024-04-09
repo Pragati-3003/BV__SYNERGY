@@ -1,14 +1,14 @@
-*{
+/* *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 
-}
+} */
 
 body{
   
 
-  font-family: 'roboto',sans-serif;
+  /* font-family: 'roboto',sans-serif; */
   /* background-image: linear-gradient(to bottom right, #002244 ,#367588); */
   
   

@@ -119,7 +119,12 @@ export default function Rightbar({ user }) {
     };
 
     return (
-      <>
+      <>  {user.username !== currentUser.username && (
+        <button className="rightbarFollowButton" onClick={handleClick}>
+          {followed ? "Unfollow" : "Follow"}
+          {followed ? <Remove /> : <Add />}
+        </button>
+      )}
         {user.username && (
           <>
             <h4 className="rightbarTitle">User Information</h4>
@@ -226,7 +231,7 @@ export default function Rightbar({ user }) {
             >
               <div className="rightbarFollowing">
                 <img
-                  src={friend.profilePicture ? friend.profilePicture : 'default-profile-picture.jpg'}
+                  src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.png"}
                   alt=""
                   className="rightbarFollowingImg"
                 />

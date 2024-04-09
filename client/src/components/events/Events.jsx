@@ -65,7 +65,7 @@ const Events = () => {
   }
 
   return (
-    <div className="events">
+    <div className="eventss">
       <Topbar/>
       <h1>Calendar</h1>
       <h2>Add New Event</h2>
