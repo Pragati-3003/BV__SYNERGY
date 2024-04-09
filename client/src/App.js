@@ -11,7 +11,7 @@ import Departments from "./components/departments/Departments";
 import Mentor from "./components/mentor/Mentor";
 import LobbyScreen from "./components/screens/Lobby";
 import RoomPage from "./components/screens/Room";
-import Jobs from "./components/jobs/Job";
+import Job from "./components/jobs/Job";
 import Deptlink from "./components/departments/Deptlink";
 import {
   BrowserRouter as Router,
