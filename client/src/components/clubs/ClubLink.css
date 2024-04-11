@@ -1,44 +1,115 @@
-.intro{
-    background-color: aqua;
-    height: 500px;
-}
-.about{
-    background-color: aquamarine;
-    height: 500px;
-}
-.program-offered{
 
-    background-color: blue;
-    height: 500px;
+.back-btn{
+    background-color:  #0c2d4e8a;
+    color: white;
+    border-radius: 50%;
+    height: 50px;
+    width:50px;
+    border:none;
+    margin: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.942);
 }
-.faculty{
+.back-btn:hover{
+    background-color: white;
+    color:   #0c2d4e;
+    
 
-    background-color: brown;
-    height: 500px;
 }
-.research{
-    background-color: yellowgreen;
-    height: 500px;
+.introduction{
+   display: flex;
+   height:250px;
+   background-color: aqua;  
+   background: url('../../../public/assets/dept_img/dept_back.jpg') no-repeat center center/cover;
+   
 }
-.facilities{
-    background-color: yellow;
-    height: 500px;
-}
-.industrial-Partnership{
-    background-color: violet;
-    height: 500px;
-}
-.events{
 
-    background-color: sienna;
-    height: 500px;
-}
-.Alumini{
+.title-name{
+    text-align: center;
 
-    background-color: seagreen;
-    height: 500px;
 }
-.contact{
-    background-color: palegreen;
-    height: 500px;
+
+.about-img{    
+display: block;
+margin: auto;
+margin-top: -100px;
+  
+}
+.about-images
+{
+    display: block;
+    margin: auto;    
+    border-radius: 50%;
+    border: 5px solid white; 
+}
+.title-name{
+    color: rgba(0, 0, 0, 0.718);
+    padding: 10px;
+    font-size: 45px;
+}
+.intro-content{
+    font-size: 20px;
+}
+/*      Member Title*/
+
+.mem-title{
+  text-align: center;
+  padding: 30px;
+  font-size: 25px;
+}
+.members{
+    background-color: #0c2d4e2f;
+}
+.member-img{
+    display: flex;  
+}
+
+.mem-img{
+    align-items: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    flex: 0 0 30%; /* Each item takes up 20% of the container width */
+    margin: 25px; /* Adjust margin as needed */
+    transform: translateY(0); /* Initial position */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.mem-img:hover{
+    transform: translateY(-10px);
+}
+.image-title{
+    text-align: center;
+    margin: 30px;
+}
+.image-section{    
+    display: block;
+    margin: auto;   
+}
+
+.contact-info{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    background-color: #0c2d4ea4;
+    height: 150px;
+}
+.contact-card-main
+{
+    height: 150px;
+   
+    
+    margin: auto;
+    text-align: center;
+  
+   
+   
+}
+
+.contact-title{
+    font-size: 25px;
+    color: white;
+    margin: 10px;
+}
+.contact-content{
+    color:rgba(240, 248, 255, 0.566);
 }
