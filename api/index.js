@@ -23,7 +23,7 @@ mongoose.connect(connectionString)
   .catch(error => {
     console.error('Error connecting to MongoDB:', error);
   });
-
+app.use("/images",express.static(path.join(__dirname,"public/images")));
 //middleware
 app.use(express.json());
 app.use(helmet());
@@ -37,10 +37,12 @@ const storage = multer.diskStorage({
     cb(null, req.body.name);
   },
 });
+// app.use(express.static('public'));
 const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   try {
     return res.status(200).json("File uploded successfully");
+    console.log(req.file);
   } catch (error) {
     console.error(error);
   }

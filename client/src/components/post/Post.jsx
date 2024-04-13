@@ -16,7 +16,6 @@ export default function Post({ post }) {
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
   }, [currentUser._id, post.likes]);
-
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -66,7 +65,7 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-          <img className="postImg" src={PF + post.img} alt="" />
+           <img className="postImg" src={ PF+ post.img} alt="image" />
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

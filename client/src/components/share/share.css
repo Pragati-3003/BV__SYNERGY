@@ -25,7 +25,8 @@
 
 .shareInput {
   border: none;
-  width: 80%;
+  /* width: 80%; */
+  width: calc(80% - 60px);
 }
 
 .shareInput:focus {
@@ -39,6 +40,7 @@
 .shareBottom {
   display: flex;
   align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -73,4 +75,8 @@
   margin-right: 20px;
   cursor: pointer;
   color: white;
+}
+.shareImg {
+  max-width: 50px; 
+  max-height: 50px; 
 }

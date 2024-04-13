@@ -145,9 +145,9 @@ function Chatbot() {
           floating
           botDelay={2000}
           botDelayOffset={1000}
-          customComponents={{
-            bot: (props) => <Response {...props} />,
-          }}
+          // customComponents={{
+          //   bot: (props) => <Response {...props} />,
+          // }}
         />
       </ThemeProvider>
     </div>

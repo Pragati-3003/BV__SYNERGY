@@ -40,10 +40,6 @@ export default function Sidebar() {
             <span className="sidebarListItemText"><Link to="/mentor" style={{textDecoration:'none' , color:'black'}}>Mentors</Link></span>
           </li>
           <li className="sidebarListItem">
-            <Group className="sidebarIcon" />
-            <span className="sidebarListItemText">Alumni</span>
-          </li>
-          <li className="sidebarListItem">
             <WorkOutline className="sidebarIcon" />
             <span className="sidebarListItemText"><Link to="/jobs" style={{textDecoration:'none' , color:'black'}}>Jobs</Link></span>
           </li>

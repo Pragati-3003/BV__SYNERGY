@@ -6,9 +6,6 @@ const bcrypt = require("bcrypt");
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { userId, isAdmin, password, ...rest } = req.body; 
-  
-  // Check if the user has permission to update the profile
-  // if (userId === id || isAdmin) {
     try {
       if (password) {
         const salt = await bcrypt.genSalt(10);
@@ -22,9 +19,6 @@ router.put("/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
-  // } else {
-  //   res.status(403).json("You can update only your account!");
-  // }
 });
 
 //delete user

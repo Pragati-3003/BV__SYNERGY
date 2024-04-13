@@ -2,7 +2,8 @@ import React, { useEffect, useCallback, useState } from "react";
 import ReactPlayer from "react-player";
 import peer from "../service/peer";
 import {useSocket} from '../../context/SocketProvider'
-
+import './room.css';
+import Topbar from '../topbar/Topbar'
 const RoomPage = () => {
   const socket = useSocket();
   const [remoteSocketId, setRemoteSocketId] = useState(null);
@@ -110,12 +111,15 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div>
+    <div className="room">
+      <Topbar/>
       <h1>Room Page</h1>
       <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
       {myStream && <button onClick={sendStreams}>Send Stream</button>}
       {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
-      {myStream && (
+     <div className="stream-wrapper ">
+
+     {myStream && (
         <>
           <h1>My Stream</h1>
           <ReactPlayer
@@ -124,6 +128,7 @@ const RoomPage = () => {
             height="500px"
             width="500px"
             url={myStream}
+            className="mystream"
           />
         </>
       )}
@@ -133,12 +138,14 @@ const RoomPage = () => {
           <ReactPlayer
             playing
             muted
-            height="100px"
+            height="200px"
             width="200px"
             url={remoteStream}
+            className="remotestream"
           />
         </>
       )}
+     </div>
     </div>
   );
 };
