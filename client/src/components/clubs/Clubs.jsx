@@ -29,7 +29,7 @@ const Clubs = () => {
 
         </div>
       ),
-      member: 'abcdefghi',
+      member: 'john',
 
     },
     {

@@ -119,12 +119,14 @@ export default function Rightbar({ user }) {
     };
 
     return (
-      <>  {user.username !== currentUser.username && (
-        <button className="rightbarFollowButton" onClick={handleClick}>
-          {followed ? "Unfollow" : "Follow"}
-          {followed ? <Remove /> : <Add />}
-        </button>
-      )}
+      <>
+        {" "}
+        {user.username !== currentUser.username && (
+          <button className="rightbarFollowButton" onClick={handleClick}>
+            {followed ? "Unfollow" : "Follow"}
+            {followed ? <Remove /> : <Add />}
+          </button>
+        )}
         {user.username && (
           <>
             <h4 className="rightbarTitle">User Information</h4>
@@ -168,13 +170,17 @@ export default function Rightbar({ user }) {
               {user.skills && user.skills.length > 0 && (
                 <div className="rightbarInfoItem">
                   <span className="rightbarInfoKey">Skills:</span>
-                  <span className="rightbarInfoValue">{user.skills.join(', ')}</span>
+                  <span className="rightbarInfoValue">
+                    {user.skills.join(", ")}
+                  </span>
                 </div>
               )}
               {user.interests && user.interests.length > 0 && (
                 <div className="rightbarInfoItem">
                   <span className="rightbarInfoKey">Interests:</span>
-                  <span className="rightbarInfoValue">{user.interests.join(', ')}</span>
+                  <span className="rightbarInfoValue">
+                    {user.interests.join(", ")}
+                  </span>
                 </div>
               )}
               {user.linkedin && (
@@ -204,7 +210,9 @@ export default function Rightbar({ user }) {
               {user.graduationYear && (
                 <div className="rightbarInfoItem">
                   <span className="rightbarInfoKey">Graduation Year:</span>
-                  <span className="rightbarInfoValue">{user.graduationYear}</span>
+                  <span className="rightbarInfoValue">
+                    {user.graduationYear}
+                  </span>
                 </div>
               )}
               {!isCurrentUserViewingOwnProfile && (
@@ -213,7 +221,9 @@ export default function Rightbar({ user }) {
               {isCurrentUserViewingOwnProfile && (
                 <>
                   <button onClick={toggleUpdateProfile}>
-                    {showUpdateProfile ? 'Hide Update Profile' : 'Update Profile'}
+                    {showUpdateProfile
+                      ? "Hide Update Profile"
+                      : "Update Profile"}
                   </button>
                   {showUpdateProfile && <Update />}
                 </>
@@ -231,7 +241,11 @@ export default function Rightbar({ user }) {
             >
               <div className="rightbarFollowing">
                 <img
-                  src={friend.profilePicture ? PF + friend.profilePicture : PF + "person/noAvatar.png"}
+                  src={
+                    friend.profilePicture
+                      ? PF + friend.profilePicture
+                      : PF + "person/noAvatar.png"
+                  }
                   alt=""
                   className="rightbarFollowingImg"
                 />

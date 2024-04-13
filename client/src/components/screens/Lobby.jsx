@@ -2,7 +2,8 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 // import { useSocket } from "../context/SocketProvider";
 import {useSocket} from '../../context/SocketProvider'
-
+import './lobby.css';
+import Topbar from '../topbar/Topbar'
 const LobbyScreen = () => {
   const [email, setEmail] = useState("");
   const [room, setRoom] = useState("");
@@ -35,8 +36,9 @@ const LobbyScreen = () => {
 
   return (
     <div>
+      <Topbar/>
       <h1>Lobby</h1>
-      <form onSubmit={handleSubmitForm}>
+      <form className="lobby-form" onSubmit={handleSubmitForm}>
         <label htmlFor="email">Email ID</label>
         <input
           type="email"
