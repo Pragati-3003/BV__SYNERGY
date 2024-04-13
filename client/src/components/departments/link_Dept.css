@@ -1,44 +1,221 @@
-.intro{
-    background-color: aqua;
-    height: 500px;
+.dept-link-container{
+   display: flex;
+    height: 50px ;   
+    background-color:  #0c2d4e;
+   
+}
+.d-item
+{
+    margin: 10px;
+    display: block;
+    margin: auto;
+    
+}
+.d-item a{
+    text-decoration: none;
+    color: white;
+   
+}
+
+.d-item a:hover{
+
+  color: #333; /* Adjust link color as needed */
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 5px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+.intro
+{
+    content: "";
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    background:linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%), url('../../../public/assets/dept_img/dept_back.jpg') no-repeat center center/cover;
+    z-index: -1;
+    opacity: 0.70;
+    opacity: 0.7; /* Adjust the opacity level as needed */
+    background-color: rgba(0, 0, 0, 0.901); /* Black color with 70% opacity */
+    mix-blend-mode: multiply; /* Apply blend mode to mix with the background */
+    
+}
+.outer-link-title{
+    
+    color: #0c2d4e;
+    padding: 10px;
+    font-size: 50px;
+}
+.card-link-information{
+    color: rgba(255, 255, 255, 0.855);
+}
+.intro-link-part{
+  
+    padding-top: 50px;
+
+}
+.intro-part2{
+   
+    background-color: black;
+    opacity: 0.78;
 }
 .about{
-    background-color: aquamarine;
-    height: 500px;
+    
+    display: flex;
+    /* margin-top:300px;
+    background-color: #0c2d4e; */
 }
-.program-offered{
+.about1 img{
+height:300px;
+width:2000px;
 
-    background-color: blue;
-    height: 500px;
 }
-.faculty{
+.about2
+{
+    color: rgba(240, 248, 255, 0.836);
+    padding: 30px;
+}
+.about2 h3{
+   text-align: center;
+   padding: 10px;
+   color: aliceblue;
+}
+.about-title
+{
+    margin: 10px;
+}
+.about-content
+{
+    text-align: center;
+    color: white;
+}
+.facilities,.program-offered h1,.industrial-Partnership h1{
+    font-size: 60px;
+    padding: 20px;
+    text-align: center;
+}
+.program-offered
+{
+    text-align:center;
+    color:white;
+    background-color: #0c2d4e53;
+    padding:20px;
+}
+.research
+{
+    display:flex;
+    color: rgba(255, 255, 255, 0.51);
+}
+.Events
+{
+    
+    display:flex;
+    color: rgba(255, 255, 255, 0.51);
+}
+.research-2 img
+{
+    height:300px;
+    width:500px;
+}
+.research-1 h1{
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+.research-1{
+    text-align: center;
+    background-color: #00000099;
+    text-align: center;
+}
+.facilities{ 
+    background-color: #0c2d4e99;
+    color: rgba(255, 255, 255, 0.622);
+}
+.facilities-content{
+    
+    font-size: 16px;
+    text-align: center;
+    
+}
+.facilities h1{
+    padding: 10px;
+    font-size: 60px;
+    text-align: center;
+}
 
-    background-color: brown;
-    height: 500px;
-}
-.research{
-    background-color: yellowgreen;
-    height: 500px;
-}
-.facilities{
-    background-color: yellow;
-    height: 500px;
-}
-.industrial-Partnership{
-    background-color: violet;
-    height: 500px;
-}
-.events{
+/*GRID*/
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+  }
+  
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
 
-    background-color: sienna;
-    height: 500px;
-}
-.Alumini{
+  .mem-title{
+    text-align: center;
+    padding: 30px;
+    font-size: 25px;
+  }
+  .Alumini{
+      background-color: #0c2d4e2f;
+  }
+  .member-img{
+      display: flex;  
+  }
+  
+  .mem-img{
+      align-items: center;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      flex: 0 0 30%; /* Each item takes up 20% of the container width */
+      margin: 25px; /* Adjust margin as needed */
+      transform: translateY(0); /* Initial position */
+      transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .mem-img:hover{
+      transform: translateY(-10px);
+  }
 
-    background-color: seagreen;
-    height: 500px;
-}
-.contact{
-    background-color: palegreen;
-    height: 500px;
-}
+  .contact-content{
+    text-align: center;
+
+  }
+  .contact{
+    text-align: center;
+    background-color: #0c2d4e;
+    
+  }
