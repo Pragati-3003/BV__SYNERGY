@@ -1,9 +1,23 @@
 const User = require("../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage: storage });
+
 
 //update user
-router.put("/:id", async (req, res) => {
+
+router.put("/:id", upload.fields([{ name: 'profilePicture', maxCount: 1 }, { name: 'coverPicture', maxCount: 1 }]), async (req, res) => {
   const { id } = req.params;
   const { userId, isAdmin, password, ...rest } = req.body; 
     try {
@@ -12,7 +26,18 @@ router.put("/:id", async (req, res) => {
         let hashedPassword = await bcrypt.hash(password, salt);
         rest.password = hashedPassword; // Update the password in the rest object
       }
-      const updatedUser = await User.findByIdAndUpdate(id, req.body);
+
+      // Check if there's a profile picture uploaded
+      if (req.files['profilePicture']) {
+        rest.profilePicture = req.files['profilePicture'][0].path; // Update the profilePicture in the rest object
+      }
+
+      // Check if there's a cover picture uploaded
+      if (req.files['coverPicture']) {
+        rest.coverPicture = req.files['coverPicture'][0].path; // Update the coverPicture in the rest object
+      }
+
+      const updatedUser = await User.findByIdAndUpdate(id, rest, { new: true });
       
       res.status(200).json(updatedUser);
       console.log(updatedUser);
@@ -20,6 +45,7 @@ router.put("/:id", async (req, res) => {
       res.status(500).json(err);
     }
 });
+
 
 //delete user
 router.delete("/:id", async (req, res) => {
