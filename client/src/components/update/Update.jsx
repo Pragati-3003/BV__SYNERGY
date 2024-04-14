@@ -24,6 +24,8 @@ const Update = () => {
   };
   
   const [userData, setUserData] = useState(initialUserData);
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [coverPicture, setCoverPicture] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,9 +35,44 @@ const Update = () => {
     });
   };
 
+  const handleProfilePictureChange = (e) => {
+    setProfilePicture(e.target.files[0]);
+    console.log(profilePicture);
+  };
+
+  const handleCoverPictureChange = (e) => {
+    setCoverPicture(e.target.files[0]);
+  };
+
   const handleSubmit = async () => {
+    // e.preventDefault();
     try {
-      const response = await axios.put(`/users/${user._id}`, userData);
+      const formData = new FormData();
+      formData.append('username', userData.username);
+      formData.append('email', userData.email);
+      formData.append('desc', userData.desc);
+      formData.append('city', userData.city);
+      formData.append('job', userData.job);
+      formData.append('skills', userData.skills);
+      formData.append('interests', userData.interests);
+      formData.append('linkedin', userData.linkedin);
+      formData.append('twitter', userData.twitter);
+      formData.append('github', userData.github);
+      formData.append('degree', userData.degree);
+      formData.append('graduationYear', userData.graduationYear);
+      if (profilePicture) {
+        formData.append('profilePicture', profilePicture);
+      }
+      if (coverPicture) {
+        formData.append('coverPicture', coverPicture);
+      }
+
+      const response = await axios.put(`/users/${user._id}`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+
       console.log(response.data); // Assuming the backend returns the updated user data
       // You can dispatch an action to update the user context with the updated data if necessary
     } catch (error) {
@@ -47,22 +84,15 @@ const Update = () => {
     <div>
       <h2>Update Profile</h2>
       <form>
-        <div>
-          <label>Username:</label>
-          <input type="text" name="username" value={userData.username} onChange={handleChange} />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" name="email" value={userData.email} onChange={handleChange} />
-        </div>
-        <div>
+        {/* Other input fields */}
+        {/* <div>
           <label>Profile Picture:</label>
-          <input type="file" name="profilePicture" onChange={handleChange} />
+          <input type="file" name="profilePicture" onChange={handleProfilePictureChange} />
         </div>
         <div>
           <label>Cover Picture:</label>
-          <input type="file" name="coverPicture" onChange={handleChange} />
-        </div>
+          <input type="file" name="coverPicture" onChange={handleCoverPictureChange} />
+        </div> */}
         <div>
           <label>Job:</label>
           <input type="text" name="job" value={userData.job} onChange={handleChange} />
