@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
-import "./chatbot.css";
+import "../chatBot/chatbot.css";
 import PropTypes from "prop-types";
 const theme = {
   background: "#f5f8fb",
