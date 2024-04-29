@@ -20,7 +20,6 @@ export default function Post({ post }) {
     const fetchUser = async () => {
       try {
         const res = await axios.get(`/users?userId=${post.userId}`);
-        // Check if response contains data
         if (res.data) {
           setUser(res.data);
         } else {
@@ -65,7 +64,8 @@ export default function Post({ post }) {
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
-           <img className="postImg" src={ PF+ post.img} alt="image" />
+          <img className="postImg" src={post.img ? PF + post.img : null} />
+
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Chatbot from "../chatBot/Chatbot";
+// import Chatbot from "../chatBot/Chatbot";
+import Cchatbox from './Cchatbox'
 import { FaBriefcase, FaSearch, FaTimes } from "react-icons/fa";
 import "./job.css";
 import Readmore from "./Readmore";
@@ -64,7 +65,8 @@ function Job() {
             })}
         </div>
       </div>
-      <Chatbot />
+      {/* <Chatbot /> */}
+      <Cchatbox/>
     </>
   );
 }
