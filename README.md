@@ -1,2 +1,2 @@
-BV Synergy Community Platform
+<h1>BV Synergy Community Platform</h1>
 BV Synergy is a comprehensive community platform designed for Banasthali Vidyapith, aimed at fostering seamless communication and collaboration among students, mentors, alumni, and teachers. Leveraging modern technologies such as React.js, Node.js, Express.js, and MongoDB, BV Synergy offers a range of features to enhance engagement within the Banasthali Vidyapith community
