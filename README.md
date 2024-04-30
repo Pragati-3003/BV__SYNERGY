@@ -72,17 +72,19 @@ BV Synergy project consists of three main folders: `api`, `client`, and `socket`
 10. **Start the SOCKET server:**
    ```sh
    npm start
+```
 
 
----
-
-
-## <b>🤝 Contributing</b>
+## 🤝 Contributing
 
 We welcome contributions from the community to enhance BV Synergy. To contribute, please fork the repository and submit pull requests with your proposed changes.
 
 ---
 
-## <b>📝 License</b>
+## 📝 License
 
 BV Synergy is licensed under the MIT License.
+
+
+
+
